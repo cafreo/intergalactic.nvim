@@ -14,10 +14,10 @@ vim.g.colors_name = 'intergalactic'
 --
 -- The performance impact of this call can be measured in the hundreds of
 -- *nanoseconds* and such could be considered "production safe".
-package.loaded['lush_theme.intergalactic'] = nil
+--package.loaded['lush_theme.intergalactic'] = nil
 
 -- include our theme file and pass it to lush to apply
-require('lush')(require('lush_theme.intergalactic'))
+--require('lush')(require('lush_theme.intergalactic'))
 
 local colors = {
 -- content here will not be touched
