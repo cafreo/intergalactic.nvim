@@ -77,21 +77,21 @@ local theme = lush(function(injected_functions)
     Conceal        { fg = backg, bg = foreg.darken(40) }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor         { fg = backg }, -- Character under the cursor
     CurSearch      { bg = yellow, fg = backg }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
-    lCursor        { bg = violet  }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
-    CursorIM       { bg = violet  }, -- Like Cursor, but used when in IME mode |CursorIM|
-    CursorColumn   { bg = violet  }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    lCursor        { bg = red  }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM       { bg = red  }, -- Like Cursor, but used when in IME mode |CursorIM|
+    CursorColumn   { bg = backg.lighten(25)  }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine     { bg = backg.lighten(10) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory      { fg = yellow, bold = true }, -- Directory names (and other special names in listings)
-    DiffAdd        { bg = blue  }, -- Diff mode: Added line |diff.txt|
-    DiffChange     { bg = blue  }, -- Diff mode: Changed line |diff.txt|
-    DiffDelete     { bg = blue  }, -- Diff mode: Deleted line |diff.txt|
-    DiffText       { fg = foreg, bg = red, bold = true }, -- Diff mode: Changed text within a changed line |diff.txt|
-    TermCursor     { bg = blue  }, -- Cursor in a focused terminal
+    DiffAdd        { bg = backg.mix(green, 20).saturate(20)  }, -- Diff mode: Added line |diff.txt|
+    DiffChange     { fg = backg, bg = backg.mix(yellow, 40).saturate(10), bold = true }, -- Diff mode: Changed line |diff.txt|
+    DiffDelete     { bg = backg.mix(red, 20).saturate(20)  }, -- Diff mode: Deleted line |diff.txt|
+    DiffText       { fg = backg, bg = backg.mix(red, 40).saturate(10), bold = true }, -- Diff mode: Changed text within a changed line |diff.txt|
+    TermCursor     { bg = violet }, -- Cursor in a focused terminal
     TermCursorNC   { bg = violet }, -- Cursor in an unfocused terminal
     ErrorMsg       { bg = red, fg = foreg }, -- Error messages on the command line
     VertSplit      { bg = blue  }, -- Column separating vertically split windows
-    Folded         { bg = blue  }, -- Line used for closed folds
-    FoldColumn     { bg = blue  }, -- 'foldcolumn'
+    Folded         { bg = violet  }, -- Line used for closed folds
+    FoldColumn     { bg = backg.lighten(5) }, -- 'foldcolumn'
     SignColumn     { bg = backg  }, -- Column where |signs| are displayed
     IncSearch      { fg = backg, bg = yellow }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     Substitute     { fg = backg, bg = green }, -- |:substitute| replacement text highlighting
@@ -100,7 +100,7 @@ local theme = lush(function(injected_functions)
     LineNrBelow    { LineNr }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     CursorLineNr   { fg = yellow, bold = true }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     EndOfBuffer    { LineNr, fg = LineNr.fg.darken(35) }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
-    CursorLineFold { bg = violet  }, -- Like FoldColumn when 'cursorline' is set for the cursor line
+    CursorLineFold { bg = foreg.darken(50) }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     CursorLineSign { CursorLine }, -- Like SignColumn when 'cursorline' is set for the cursor line
     MatchParent     { bg = green }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     Normal         { fg = foreg }, -- Normal text
@@ -124,25 +124,25 @@ local theme = lush(function(injected_functions)
     Question       { fg = green, bold = true }, -- |hit-enter| prompt and yes/no questions
     Search         { fg = backg, bg = green.lighten(20), bold = true }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
     QuickFixLine   { Search }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    SpecialKey     { bg = violet  }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
+    SpecialKey     { bg = blue  }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad       { fg = Normal.fg, sp = red, undercurl = true }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     SpellCap       { fg = Normal.fg, sp = blue, undercurl = true }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     SpellLocal     { fg = Normal.fg, sp = lightblue, undercurl = true }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     SpellRare      { fg = Normal.fg, sp = violet, undercurl = true }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
     StatusLine     { bg = backg }, -- Status line of current window
     StatusLineNC   { bg = backg2 }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    TabLine        { bg = violet  }, -- Tab pages line, not active tab page label
-    TabLineFill    { bg = violet  }, -- Tab pages line, where there are no labels
+    TabLine        { bg = blue  }, -- Tab pages line, not active tab page label
+    TabLineFill    { bg = blue  }, -- Tab pages line, where there are no labels
     TabLineSel     { fg = foreg }, -- Tab pages line, active tab page label
-    Title          { bg = violet  }, -- Titles for output from ":set all", ":autocmd" etc.
+    Title          { bg = blue  }, -- Titles for output from ":set all", ":autocmd" etc.
     Visual         { bg = backg.lighten(20) }, -- Visual mode selection
-    VisualNOS      { bg = violet  }, -- Visual mode selection when vim is "Not Owning the Selection".
+    VisualNOS      { bg = blue  }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg     { fg = red }, -- Warning messages
     -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     Winseparator   { fg = yellow }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
-    WildMenu       { bg = violet }, -- Current match in 'wildmenu' completion
-    WinBar         { bg = violet }, -- Window bar of current window
-    WinBarNC       { bg = violet }, -- Window bar of not-current windows
+    WildMenu       { bg = blue }, -- Current match in 'wildmenu' completion
+    WinBar         { bg = blue }, -- Window bar of current window
+    WinBarNC       { bg = blue }, -- Window bar of not-current windows
 
     -- Common vim syntax groups used for all kinds of code and markup.
     -- Commented-out groups should chain up to their preferred (*) group

@@ -1,5 +1,5 @@
 local lushwright = require("shipwright.transform.lush")
-run(require("lush_theme.intergalactic"),
+run(require("lua.lush_theme.intergalactic"),
   -- generate lua code
   lushwright.to_lua,
   -- write the lua code into our destination.
